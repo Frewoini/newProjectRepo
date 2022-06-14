@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  background-color: lightcoral;
+}
+
+#list-items {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.card {
+  margin-bottom: 2em;
+}
+.card-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h1 {
+  text-align: center;
+  font-size: 45px;
+}
+.card-text {
+  text-align: center;
+}
+.btn {
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover {
+  background: rgb(50, 255, 255);
+}
+.card:hover {
+  -webkit-box-shadow: -2px -1px 25px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: -2px -1px 25px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px -1px 25px -4px rgba(0, 0, 0, 0.75);
+  transition: 0.5s;
+}
