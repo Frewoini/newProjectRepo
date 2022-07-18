@@ -17,12 +17,12 @@ newItemForm.addEventListener('submit',(event)=>{
    // Get the values of the inputs
    const name = newItemName.value;
    const description = newItemDescription.value;
-   const img = newItemImageUrl.value;
+   const imageURL = newItemImageUrl.value;
    const price = newItemPrice.value;
     // Add the item to the ItemsController
     
    //itemsController.loadItemsFromLocalStorage();
-    itemsController.addItem(name,description, img,price);
+    itemsController.addItem(name,description, imageURL,price);
     //itemsController.loadItemsFromLocalStorage();
      itemsController.setLocalStorage();
 
@@ -30,7 +30,7 @@ newItemForm.addEventListener('submit',(event)=>{
     newItemName.value = " ";
     newItemDescription.value = " ";  
     price.value = " ";
-    img.value = " ";
+    imageURL.value = " ";
 
     
 })
