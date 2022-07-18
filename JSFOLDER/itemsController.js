@@ -5,9 +5,10 @@ constructor(currentId = 0){
    this.currentId = currentId;
 }
 
+
 addItem(name,description,imageURL,price){
     const item={
-   id:this.currentId++,
+   //id:this.currentId++,
    name:name,
    description:description,
    imageURL:imageURL,
@@ -58,23 +59,28 @@ save({name, description, imageURL, price}){
     console.error('Error:', error);
     });
 }
-// save({name, description, imageURL,price}){
-//     const data = {name, description, imageURL, price};
-//     fetch('http://localhost:8080/item/{id}', {
-//         method: 'DELETE',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(data),
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         console.error('Error:', error);
-//     });
 
-// }
+update({name, description, imageURL, price}){
+    //TODO implement this method
+    const data = { name,  description, imageURL, price };
+
+    fetch('http://localhost:8080/item/id', {
+    method: 'PUT', // or 'PUT'
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+    console.log('Success:', data);
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+    });
 
 } 
+}
 
 // let tvItem = new ItemsController()
 // tvItem.addItem('samsung','new tv','img',2000)
