@@ -7,7 +7,7 @@ constructor(currentId = 0){
 
 addItem(name,description,imageURL,price){
     const item={
-   //id:this.currentId++,
+   id:this.currentId++,
    name:name,
    description:description,
    imageURL:imageURL,
@@ -59,11 +59,11 @@ save({name, description, imageURL, price}){
     });
 }
 
-update({name, description, imageURL, price}){
+update({name, description, imageURL, price, id}){
     //TODO implement this method
-    const data = { name,  description, imageURL, price };
+    const data = { name,  description, imageURL, price};
 
-    fetch('http://localhost:8080/item/id', {
+    fetch(`http://localhost:8080/item/update/${id}`, {
     method: 'PUT', // or 'PUT'
     headers: {
         'Content-Type': 'application/json',
@@ -80,7 +80,23 @@ update({name, description, imageURL, price}){
 
 } 
 
+delete(id){
+        fetch(`http://localhost:8080/item/${id}`,{
+            method: 'DELETE', // or 'PUT'
+            
+            })
+            // .then(response => response.json())
+            // .then(data => {
+            // console.log('Success:', data);
+            // })
+            // .catch((error) => {
+            // console.error('Error:', error);
+            // });
+      }
+
+    //TODO implement this method
 }
+
 
 // let tvItem = new ItemsController()
 // tvItem.addItem('samsung','new tv','imageURL',2000)
