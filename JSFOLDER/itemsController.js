@@ -79,6 +79,7 @@ update({name, description, imageURL, price}){
     });
 
 } 
+
 }
 
 // let tvItem = new ItemsController()
