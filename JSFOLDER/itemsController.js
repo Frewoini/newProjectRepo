@@ -62,7 +62,7 @@ save({name, description, imageURL, price}){
 
 update({name, description, imageURL, price, id}){
     //TODO implement this method
-    const data = { name,  description, imageURL, price};
+    const data = { name,  description, imageURL, price,id};
 
     fetch(`http://localhost:8080/item/update/${id}`, {
     method: 'PUT', // or 'PUT'
@@ -84,8 +84,9 @@ update({name, description, imageURL, price, id}){
 delete(id){
         fetch(`http://localhost:8080/item/${id}`,{
             method: 'DELETE', // or 'PUT'
+        
             
-            })
+            }).then(response=>addItemCard())
             // .then(response => response.json())
             // .then(data => {
             // console.log('Success:', data);
@@ -94,6 +95,46 @@ delete(id){
             // console.error('Error:', error);
             // });
       }
+
+      async findById(id) {
+            let response = await fetch(`http://localhost:8080/item/${id}`);
+          
+            //let itemJson = JSON.stringify(response);
+          
+            //if the response is bad
+            if (!response.ok) {
+              throw new Error(`There is an error with status ${response.status}`);
+            }
+            let itemJson = response.json();
+            console.log(itemJson);
+          
+            return itemJson;
+          }
+
+   async displayOnForm(id) {
+           
+            let items = await this.findById(id);
+           // console.log(items);
+          const name = document.getElementById("name");
+          name.setAttribute("data-id",id);
+                    const description =document.getElementById("description");
+          const image =document.getElementById("image");
+          const price =document.getElementById("price");
+
+        
+            name.value = items.name;
+            description.value = items.description;
+            image.value = items.imageURL;
+            price.value = items.price;
+     
+    //    const updateName = name.value;
+    //    const updateDescription = description.value;
+    //    const updateImg = image.value;
+    //    const updatePrice = price.value;
+      
+   }
+
+     
 
     //TODO implement this method
 }
