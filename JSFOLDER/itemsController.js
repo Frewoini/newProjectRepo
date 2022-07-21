@@ -86,21 +86,12 @@ delete(id){
         
             
             }).then(response=>addItemCard())
-            // .then(response => response.json())
-            // .then(data => {
-            // console.log('Success:', data);
-            // })
-            // .catch((error) => {
-            // console.error('Error:', error);
-            // });
+        
       }
 
       async findById(id) {
             let response = await fetch(`http://localhost:8080/item/${id}`);
           
-            //let itemJson = JSON.stringify(response);
-          
-            //if the response is bad
             if (!response.ok) {
               throw new Error(`There is an error with status ${response.status}`);
             }
