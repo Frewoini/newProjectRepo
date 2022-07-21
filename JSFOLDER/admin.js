@@ -16,6 +16,7 @@ const form =document.getElementById("form");
 //     }
 // }
 // loadStorageSampleData();
+let listItems =document.getElementById('list-items')
 const makeRequest = async () => {
   let response = await fetch("http://localhost:8080/item/all");
   // if the response is bad
@@ -33,7 +34,7 @@ function getItemDataId(e){
 };
 
 const addItemCard = async()=>{
-  let listItems =document.getElementById('list-items')
+  // let listItems =document.getElementById('list-items')
   let items = await makeRequest();
   console.log(items);
   listItems.innerHTML = " ";
@@ -87,12 +88,33 @@ const submitUpdateForm = function(event){
     const image =document.getElementById("image");
     const price =document.getElementById("price");
 const id = name.getAttribute("data-id");
+            // itemsController.items = " ";
+            
+            let updatedItem = {
+              updateId: name.getAttribute("data-id"),
+             updateName: name.value,
+            updateDescription: description.value,
+             updateImg: image.value,
+            updatePrice: price.value
+            };
+            console.log(itemsController);
+           
+            const itemHTML = `<div class="card" style="width: 20rem;"data-id="${updatedItem.updateId}>
+        <div class="card-body"> 
+      <h5 class="card-title"> ${updatedItem.updateName}</h5>
+      <img src= ${updatedItem.updateImg} width="300" height="250"  alt="product image"> 
+      <p class="card-text">${updatedItem.updateDescription}</p>
+      <p class="card-text"><span>$</span> ${updatedItem.updatePrice}</p>
+      <button id = "btn" data-id= '${updatedItem.updateId}' onclick = "showForm(), itemsController.displayOnForm(${updatedItem.updateId}})">Edit</button>&nbsp&nbsp<button data-id='${updatedItem.updateId}'; onclick="itemsController.delete(${updatedItem.updateId})">Delete</button> 
+
+    
+      </div>
+      </div>` 
+         itemsController.update({name:updatedItem.updateName,description:updatedItem.updateDescription,imageURL:updatedItem.updateImg,price:updatedItem.updatePrice,id:updatedItem.updateId})
+          //itemsController.update(itemsController);
+          listItems.innerHTML += itemHTML;
   
- const updateName = name.value;
- const updateDescription = description.value;
- const updateImg = image.value;
- const updatePrice = price.value;
- itemsController.update({updateName,updateDescription,updateImg,updatePrice,id});
+ 
  
 }
 const updateBtn =document.getElementById("updatebtn");
