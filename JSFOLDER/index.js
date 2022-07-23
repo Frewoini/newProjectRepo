@@ -1,33 +1,27 @@
-// function validateForm() {
-//     let x = document.forms["myForm"]["fname"].value;
-//     if (x == "") {
-//       alert("Name must be filled out");
-//       return false;
-//     }
-//   }
 
-const username = document.querySelector('#username');
-const password = document.querySelector('#password');
-const submitBtn = document.getElementById("submitBtn");
-const form = document.getElementById("form");
-
-//Code language: JavaScript (javascript)
-//And then you attach the submit event listener to the form by using the addEventListener() method:
-
-// submitBtn.addEventListener('submit', function (e) {
-//     // prevent the form from submitting
-//     e.preventDefault();
-    const redirectFunction= function () {
-        if(username == "manna" && password == "manna") {
-            window.location = "/admin.html";
+const newForm = document.querySelector("#myForm")
  
-        }
-    } 
+
+ newForm.addEventListener('submit',()=>{
+    const userName = document.getElementById("username");
+    const password = document.getElementById("password");
+   
+    const loginName = userName.value;
+    
+    const loginPassword = password.value;
+if(loginName == 'admin' && loginPassword == "admin123"){
+     
+    location.href = "/./admin.html";
+}else {
+    alert("sorry,incorrect user name and password")
+}
+
+ })
+
+
+
     
         
     
 
-
-// const loginBtn = document.getElementById("loginButton");
-// loginBtn.addEventListener("click", )
 

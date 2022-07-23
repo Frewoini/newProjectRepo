@@ -82,21 +82,21 @@ update({name, description, imageURL, price, id}){
 
 delete(id){
         fetch(`http://localhost:8080/item/${id}`,{
-            method: 'DELETE', // or 'PUT'
+            method: 'DELETE', 
         
             
             }).then(response=>addItemCard())
         
       }
 
-      async findById(id) {
+ async findById(id) {
             let response = await fetch(`http://localhost:8080/item/${id}`);
           
             if (!response.ok) {
               throw new Error(`There is an error with status ${response.status}`);
             }
             let itemJson = response.json();
-            console.log(itemJson);
+            //console.log(itemJson);
           
             return itemJson;
           }
