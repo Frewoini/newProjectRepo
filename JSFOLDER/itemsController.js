@@ -73,7 +73,7 @@ update({name, description, imageURL, price, id}){
     .then(response => response.json())
     .then(data => {
     console.log('Success:', data);
-    })
+    }).then(data=>addItemCard())
     .catch((error) => {
     console.error('Error:', error);
     });

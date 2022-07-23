@@ -15,7 +15,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
   </head>
   <body>
     
@@ -51,18 +51,32 @@
             <input class="search_input " type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success px-3" type="submit" id="search_btn">Search</button>
           </form>
-          <li class="mx-4" href="./Login.html" list-style-type:none ;">LOGIN</li>
+          <li class="mx-4" href="./Login.html" list-style-type:none ;>LOGIN</li>
         </div>
       </div>
     </nav>
-
+    <div>
+    <form id="form">
+      <label for="newItemNameInput">User Name</label>
+            <input type="text" class="form-control" id="username">
+            <br>
+            <label for="newItemNameInput">Password</label>
+            <input type="password" class="form-control" id="password">
+            <br>
+            <input type="button" onclick="redirectFunction()"
+ value='Submit' id="submitBtn" >
+            <!-- <button id="submitBtn" onClick="parent.location='admin.html' >Submit</button> -->
+            <br>
+           
+    </form>
     
-    
+  </div>
 
 
 
-
-
+  <script src="/JSFOLDER/index.js">
+  
+  </script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

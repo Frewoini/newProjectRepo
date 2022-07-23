@@ -98,6 +98,8 @@ const id = name.getAttribute("data-id");
             updatePrice: price.value
             };
             console.log(itemsController);
+
+            listItems.innerHTML = " ";
            
             const itemHTML = `<div class="card" style="width: 20rem;"data-id="${updatedItem.updateId}>
         <div class="card-body"> 
