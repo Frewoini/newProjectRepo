@@ -1,8 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  background-color: lightcoral;
+  font-family: 'Roboto', sans-serif;
+  /* background-color: lightcoral; */
+}
+.navbar{
+  position:static;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:9;
+    
+}
+.nav{
+  padding: 10px 10vw;
+  display: flex;
+  justify-content: space-between;
+
+}
+.brand-logo{
+  height:30px;
+}
+.nav-items{
+  display:flex;
+  align-items:center ;
+}
+.search{
+  width: 500px;
+  display:flex;
+}
+.search-box{
+  width: 50%;
+  height: 40px;
+  padding:10px;
+  margin-right: -30px;
+  border-radius:10px;
+  border:1px solid rgb(50, 163, 255);
+  background: none;
+  outline:none;
+  
+}
+.search-box::placeholder{
+  color:grey;
+}
+.search-btn{
+  height:40px;
+  width:40%;
+  border:none;
+  background-color:rgb(138, 25, 244);
+  outline:none;
+  border-radius: 40px;
+  color:white;
+  font-size: 15px;
+  
+}
+.search-btn:hover{
+  transform: scale(0.98);
+  outline: none;
+  color:black;
 }
 
+.nav-items a{
+  margin-left:20px;
+  
+}
+.fa-solid{
+  font-size: 30px;
+  color:cadetblue;
+}
+.links-container{
+  width: 100%;
+  display: flex;
+  padding:10px 10vw;
+ 
+  justify-content: center;
+  list-style: none;
+  border-top:1px solid #d1d1d1;
+}
+.links{
+  text-transform: capitalize;
+  padding: 0 60px;
+  margin: 0 5px;
+  text-decoration: none;
+  color:black;
+  font-weight: bold !important;
+  font-family: 'Roboto', sans-serif;
+}
+.links:hover{
+  color:#ff5100;
+}
+.link-item{
+  font-size: large;
+}
+.banner {
+  background-image: url("../imgfolder/Tv_img/wall-mounted-tv.webp");
+  height: 30vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media only screen and (max-width:480px){
+  .navbar{
+    width: 50%;
+  }
+}
 #list-items {
   display: flex;
   justify-content: space-around;
