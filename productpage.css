@@ -95,12 +95,12 @@
 .link-item{
   font-size: large;
 }
-.banner {
+/* .banner {
   background-image: url("../imgfolder/Tv_img/wall-mounted-tv.webp");
   height: 30vw;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 .checkbtn{
   font-size: 30px;
   color:white;

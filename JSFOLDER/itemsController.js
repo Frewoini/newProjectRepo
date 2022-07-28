@@ -107,7 +107,7 @@ delete(id){
            // console.log(items);
           const name = document.getElementById("name");
           name.setAttribute("data-id",id);
-                    const description =document.getElementById("description");
+        const description =document.getElementById("description");
           const image =document.getElementById("image");
           const price =document.getElementById("price");
 
@@ -123,8 +123,11 @@ delete(id){
     //    const updatePrice = price.value;
       
    }
+    async displayOnCard (id) {
+    let itemsToDisplayOnCart = await this.findById(id);
+     console.log(itemsToDisplayOnCart);
 
-     
+    }
 
     //TODO implement this method
 }

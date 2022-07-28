@@ -80,7 +80,7 @@ const submitUpdateForm = function(event){
     const description =document.getElementById("description");
     const image =document.getElementById("image");
     const price =document.getElementById("price");
-const id = name.getAttribute("data-id");
+    const id = name.getAttribute("data-id");
             // itemsController.items = " ";
             
             let updatedItem = {
