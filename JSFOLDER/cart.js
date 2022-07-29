@@ -18,6 +18,7 @@ const renderItemOnCart = async function(id) {
 
   let item = await makeRequestItemOnCart(id);
   
+     
     const cartHtml = `<img src="${item.imageURL}" alt="">
     <div class="detail">
       <h3 class="name">${item.name}</h3>
@@ -25,22 +26,22 @@ const renderItemOnCart = async function(id) {
       <span class="quantity">Quantity:1</span>
    <span class="price">${item.price}</span>
   </div>
-   <div class="cancel"><i class="fa-solid fa-xmark"></i></div>`
-   cartItem.innerHTML+=cartHtml; 
-   let cancel = document.querySelector(".cancel")
-   
-   cancel.addEventListener('click',function(id){
-  
-    fetch(`http://localhost:8080/item/${id}`,{
-     method: 'DELETE', 
- 
-     
-     })
-})
+   <div class="cancel" id="cancelBtn" onclick="removeFromCart()"><i class="fa-solid fa-trash"></i></div>`
+   cartItem.innerHTML+=cartHtml;
+   let cancel = document.getElementsByClassName("cancel")
 
-  
+    function removeFromCart(){
+    for(let i=0;i<cancel.length;i++){
+       let button = cancel[i];
+       button.addEventListener('click',()=>{
+        button.parentElement.remove()
+       });
+    }
+   }
+  removeFromCart();
 
 }
+
 const cartIcon = document.querySelector(".fa-cart-shopping");
 const wholeCartWindow = document.querySelector(".whole-cart-window");
 wholeCartWindow.inWindow =0;
@@ -67,7 +68,6 @@ wholeCartWindow.addEventListener('mouseleave',()=>{
   wholeCartWindow.inWindow =0
    wholeCartWindow.classList.add('hide')
 })
-
 
 
 
