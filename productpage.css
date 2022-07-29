@@ -4,7 +4,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  /* background-color: lightcoral; */
+   background-color: lightcoral; 
 }
 :root{
   --after-content:'2';
