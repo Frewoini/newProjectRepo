@@ -35,7 +35,7 @@ const addItemCard = async()=>{
       <img src= ${item.imageURL} width="300" height="250"  alt="product image"> 
       <p class="card-text">${item.description}</p>
       <p class="card-text"><span>$</span> ${item.price}</p>
-  <button class="btn" data-id= '${item.id}'; onclick="itemsController.displayOnCard(${item.id})">Add to cart</button>
+  <button class="btn" data-id= '${item.id}'; onclick="renderItemOnCart(${item.id})">Add to cart</button>
   </div>
 </div>` 
 listItems.innerHTML += itemHTML;

@@ -24,7 +24,7 @@
                 <input type="text" class="search-box" placeholder="search product">
                  <button class="search-btn">search</button>
             </div>
-            <a href="HTML_pages/Cart.html"><i class="fa-solid fa-cart-shopping"></i></a>          
+            <!-- <a href="HTML_pages/Cart.html"><i class="fa-solid fa-cart-shopping"></i></a>           -->
         </div>
     </div>
     <ul class="links-container">
@@ -33,6 +33,37 @@
         <li class="link-item"><a href="#" class="links">computer and tablets</a></li>
       </ul>
    </nav>
+   <header>
+    <div class="cart-box">
+        <div class="cart-icon"><i class="fa-solid fa-cart-shopping non-empty"></i></div>
+        <div class="whole-cart-window hide">
+            <h2>Shopping cart</h2>
+            <div class="cart-wrapper">
+                  <div class="cart-item">
+                     
+                    
+                 </div> 
+                 <!-- <div class="cart-item">
+                     
+                    <img src="./imgfolder/Tv_img/hinsense-qled.jpeg" alt="">
+                      <div class="detail">
+                        <h3 class="name">name</h3>
+                     <p class="discription">LG 43” Class LED 4K UHD Smart webOS TV</p>
+                        <span class="quantity">Quantity:1</span>
+                     <span class="price">$1000</span>
+                    </div>
+                     <div class="cancel"><i class="fa-solid fa-xmark"></i></div>
+                 </div> -->
+            </div>
+            <div class="subtotoal">
+                subtotal:0.00;
+            </div>
+            <button class="checkout">checkout</button>
+            <button class="viewcart">View Cart</button>
+            <button class="clear-all">Clear All</button>
+        </div>
+    </div>
+   </header>
    <section class="banner">
       
     
@@ -54,7 +85,8 @@
     
 
         <script src="./jsfolder/itemsController.js"></script>
-  <script src="./jsfolder/item.js"></script>
+        <script src="./jsfolder/item.js"></script>
+        <script src="./JSFOLDER/cart.js"></script>
 
     
 </body>
