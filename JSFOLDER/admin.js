@@ -24,7 +24,7 @@ const makeRequest = async () => {
     throw new Error(`There is an error with status ${response.status}`);
   }
   let itemJson = response.json();
-  console.log(itemJson);
+  //console.log(itemJson);
 
   return itemJson;
 };
@@ -34,9 +34,9 @@ function getItemDataId(e){
 };
 
 const addItemCard = async()=>{
-  // let listItems =document.getElementById('list-items')
+ 
   let items = await makeRequest();
-  console.log(items);
+  
   listItems.innerHTML = " ";
   
      //itemsController.loadLocalStorage();
@@ -72,13 +72,6 @@ const addItemCard = async()=>{
      })
      
 
-    //  function followUser(e){
-    //     var id = e.getAttribute('data-id');
-    //     console.log(id);
-    // }
-          
-  
-//     }
  }
 
 const submitUpdateForm = function(event){
@@ -87,7 +80,7 @@ const submitUpdateForm = function(event){
     const description =document.getElementById("description");
     const image =document.getElementById("image");
     const price =document.getElementById("price");
-const id = name.getAttribute("data-id");
+    const id = name.getAttribute("data-id");
             // itemsController.items = " ";
             
             let updatedItem = {
@@ -97,7 +90,7 @@ const id = name.getAttribute("data-id");
              updateImg: image.value,
             updatePrice: price.value
             };
-            console.log(itemsController);
+            //console.log(itemsController);
 
             listItems.innerHTML = " ";
            

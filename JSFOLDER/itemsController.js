@@ -5,7 +5,6 @@ constructor(currentId = 0){
    this.currentId = currentId;
 }
 
-
 addItem(name,description,imageURL,price){
     const item={
    id:this.currentId++,
@@ -83,21 +82,21 @@ update({name, description, imageURL, price, id}){
 
 delete(id){
         fetch(`http://localhost:8080/item/${id}`,{
-            method: 'DELETE', // or 'PUT'
+            method: 'DELETE', 
         
             
             }).then(response=>addItemCard())
         
       }
 
-      async findById(id) {
+ async findById(id) {
             let response = await fetch(`http://localhost:8080/item/${id}`);
           
             if (!response.ok) {
               throw new Error(`There is an error with status ${response.status}`);
             }
             let itemJson = response.json();
-            console.log(itemJson);
+            //console.log(itemJson);
           
             return itemJson;
           }
@@ -108,7 +107,7 @@ delete(id){
            // console.log(items);
           const name = document.getElementById("name");
           name.setAttribute("data-id",id);
-                    const description =document.getElementById("description");
+        const description =document.getElementById("description");
           const image =document.getElementById("image");
           const price =document.getElementById("price");
 
@@ -124,15 +123,18 @@ delete(id){
     //    const updatePrice = price.value;
       
    }
+    async displayOnCard (id) {
+    let itemsToDisplayOnCart = await this.findById(id);
+     console.log(itemsToDisplayOnCart);
 
-     
+    }
 
     //TODO implement this method
 }
 
 
 // let tvItem = new ItemsController()
-// tvItem.addItem('samsung','new tv','img',2000)
+// tvItem.addItem('samsung','new tv','imageURL',2000)
 // console.log(tvItem.items)
 
 

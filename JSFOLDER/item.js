@@ -22,7 +22,7 @@ const makeRequest = async () => {
   return itemJson;
 };
 
-const addItemCard = async(item)=>{
+const addItemCard = async()=>{
   let listItems =document.getElementById('list-items')
   let items = await makeRequest();
   console.log(items);
@@ -35,7 +35,7 @@ const addItemCard = async(item)=>{
       <img src= ${item.imageURL} width="300" height="250"  alt="product image"> 
       <p class="card-text">${item.description}</p>
       <p class="card-text"><span>$</span> ${item.price}</p>
-  <a href="#" class="btn ">Add to cart</a>
+  <button class="btn" data-id= '${item.id}'; onclick="renderItemOnCart(${item.id})">Add to cart</button>
   </div>
 </div>` 
 listItems.innerHTML += itemHTML;
