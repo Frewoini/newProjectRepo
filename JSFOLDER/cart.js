@@ -1,5 +1,5 @@
 
-const cartItem = document.querySelector(".cart-item");
+const cartItem = document.querySelector(".cart-wrapper");
 
  
 const makeRequestItemOnCart = async(id)=>{
@@ -17,35 +17,102 @@ const renderItemOnCart = async function(id) {
   
   let item = await makeRequestItemOnCart(id);
   
-     
-    const cartHtml = `<img src="${item.imageURL}" alt="image">
+const cartItem = document.getElementsByClassName("cart-wrapper")[0];
+  
+  let itemCard = document.createElement("div");
+   itemCard.classList.add('cart-item');
+   itemCard.setAttribute("data-id",item.id);
+    itemCard.innerHTML = `
+    <img src="${item.imageURL}" alt="image">
     <div class="detail">
       <h3 class="name">${item.name}</h3>
       <p class="description"> ${item.description}</p>
-      <span class="quantity">Quantity:1</span>
+      <input type="number" class="quantity" value="1">
    <span class="price">${item.price}</span>
   </div>
-   <div class="cancel" id="cancelBtn"><i class="fa-solid fa-trash"></i></div>`
+   <div class="cancel" id="cancelBtn"><i class="fa-solid fa-trash"></i></div>
+   `
 
      
-         cartItem.innerHTML+=cartHtml;
+         cartItem.appendChild(itemCard);
+         
+
+         if(document.readyState === "loading"){
+          document.addEventListener("DOMContentLoaded",ready)
+         }else{
+          ready()
+         }
+         function ready(){
+          let cartRemoveButton = document.getElementsByClassName("cancel")
+            for(let i=0;i<cartRemoveButton.length;i++){
+              let button = cartRemoveButton[i];
+              button.addEventListener('click',removeCartItem)
+            }
+            //to update quantity 
+            let quantityInput = document.getElementsByClassName('quantity')
+            for(let i=0;i<quantityInput.length;i++){
+              let input = quantityInput[i];
+              input.addEventListener('changed',quantityChange)
+            }
+         }
+         function removeCartItem(event){
+          let buttonClicked = event.target;
+          let parent = buttonClicked.parentElement.parentElement;
+            parent.remove();
+            updateItem();
+         }
+         //quantity change 
+         function quantityChange(event){
+           let input = event.target
+           console.log(input)
+           if( input.value <= 0){
+            input.value=1;
+           }
+           updateItem();
+         }
      
-   //cartItem.innerHTML+=cartHtml;
-    
-   let cancel = document.querySelector("#cancelBtn")
-       console.log(cancel);
-        let parent = cancel.parentNode
-        console.log(parent);
-    function removeFromCart(id){
-        cancel.addEventListener('click',()=>{
-          cancel.childNodes[item.id].remove()
-        })
-        
-       
-   } 
-   removeFromCart();
+   //to update item 
+  //  function updateItem(){
+  //   let cartContent = document.getElementsByClassName('cart-wrapper')[0]
+  //   let cartCards = cartContent.getElementsByClassName('cart-item')
+
+  //   let total =0;
+  //   for(let i=0;i<cartCards.length;i++){
+  //       let cartCard = cartCards[i];
+  //       let priceItem = cartCard.getElementsByClassName('price')[0];
+  //       let price = parseFloat(priceItem.innerText.replace("$",""))
+  //       let cartQuantity = cartCard.getElementsByClassName('quantity')[0];
+  //       let quantity = cartQuantity.value 
+  //      total= total+ (price *quantity);
+  //      //total =Math.random(total*100)/100;
+  //       document.getElementsByClassName('subtotal')[0].innerText = "$"+total;
+  //   }
+   
+  //  }
+  
+  
 }
+function updateItem(){
+  let cartContent = document.getElementsByClassName('cart-wrapper')[0]
+  let cartCards = cartContent.getElementsByClassName('cart-item')
+  
+  let total =0;
+  for(let i=0;i<cartCards.length;i++){
 
+      let cartCard = cartCards[i];
+      console.log(cartCard)
+      let priceItem = cartCard.getElementsByClassName('price')[0];
+      let price = parseFloat(priceItem.innerText.replace("$",""))
+      let cartQuantity = cartCard.getElementsByClassName('quantity')[0];
+      let quantity = cartQuantity.value 
+     total= total + (price * quantity);
+     //total =Math.random(total*100)/100;
+      document.getElementsByClassName('subtotal')[0].innerText = "$"+ total;
+     
+  }
+ 
+ }
+  
 const cartIcon = document.querySelector(".fa-cart-shopping");
 const wholeCartWindow = document.querySelector(".whole-cart-window");
 wholeCartWindow.inWindow =0;
