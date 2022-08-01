@@ -16,9 +16,12 @@ const makeRequestItemOnCart = async(id)=>{
 const renderItemOnCart = async function(id) {
   
   let item = await makeRequestItemOnCart(id);
+  
+const cartItem = document.getElementsByClassName("cart-wrapper")[0];
+  
   let itemCard = document.createElement("div");
    itemCard.classList.add('cart-item');
-  itemCard.setAttribute("data-id",item.id);
+   itemCard.setAttribute("data-id",item.id);
     itemCard.innerHTML = `
     <img src="${item.imageURL}" alt="image">
     <div class="detail">
@@ -32,6 +35,7 @@ const renderItemOnCart = async function(id) {
 
      
          cartItem.appendChild(itemCard);
+         
 
          if(document.readyState === "loading"){
           document.addEventListener("DOMContentLoaded",ready)
@@ -60,7 +64,8 @@ const renderItemOnCart = async function(id) {
          //quantity change 
          function quantityChange(event){
            let input = event.target
-           if(isNaN( input.value) && input.value <=0){
+           console.log(input)
+           if( input.value <= 0){
             input.value=1;
            }
            updateItem();
@@ -93,14 +98,17 @@ function updateItem(){
   
   let total =0;
   for(let i=0;i<cartCards.length;i++){
+
       let cartCard = cartCards[i];
+      console.log(cartCard)
       let priceItem = cartCard.getElementsByClassName('price')[0];
       let price = parseFloat(priceItem.innerText.replace("$",""))
       let cartQuantity = cartCard.getElementsByClassName('quantity')[0];
       let quantity = cartQuantity.value 
-     total= total+ (price *quantity);
+     total= total + (price * quantity);
      //total =Math.random(total*100)/100;
-      document.getElementsByClassName('subtotal')[0].innerText = "$"+total;
+      document.getElementsByClassName('subtotal')[0].innerText = "$"+ total;
+     
   }
  
  }
